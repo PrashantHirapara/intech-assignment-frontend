@@ -1,0 +1,30 @@
+<div *ngIf="employee">
+  <h2>Employee Details</h2>
+  <div>
+    <label>ID:</label>
+    <span>{{ employee.id }}</span>
+  </div>
+  <div>
+    <label>Name:</label>
+    <input [(ngModel)]="employee.name" class="form-control" />
+  </div>
+  <div>
+    <label>Email:</label>
+    <input [(ngModel)]="employee.email" class="form-control" />
+  </div>
+  <div>
+    <label>Position:</label>
+    <input [(ngModel)]="employee.position" class="form-control" />
+  </div>
+  <div>
+    <label>Salary:</label>
+    <input [(ngModel)]="employee.salary" class="form-control" />
+  </div>
+
+  <button (click)="updateEmployee()" class="btn btn-success">
+    Update Employee
+  </button>
+  <button (click)="deleteEmployee()" class="btn btn-danger">
+    Delete Employee
+  </button>
+</div>
