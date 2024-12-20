@@ -25,7 +25,6 @@ export class EmployeeTableComponent implements OnInit {
     this.employeeService.getAllEmployees().subscribe(
       (data) => {
         this.employees = data;
-        this.filteredEmployees = data;
       },
       (error) => {
         console.error('Error fetching employees', error);
@@ -42,6 +41,7 @@ export class EmployeeTableComponent implements OnInit {
             this.filteredEmployees = data;
           },
           (error) => {
+            this.filteredEmployees = [];
             console.error('Error fetching employees by department', error);
           }
         );
@@ -51,12 +51,10 @@ export class EmployeeTableComponent implements OnInit {
   }
 
   viewEmployee(employeeId: string): void {
-    console.log('Navigating to employee details for ID:', employeeId);
     this.router.navigate([`/employee/${employeeId}`]);
   }
 
   onDeleteEmployee(employeeId: string): void {
     this.employees = this.employees.filter((emp) => emp.id !== employeeId);
-    console.log(`Employee with ID ${employeeId} deleted`);
   }
 }

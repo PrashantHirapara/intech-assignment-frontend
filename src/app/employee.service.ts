@@ -10,7 +10,7 @@ export class EmployeeService {
   constructor(private http: HttpClient) {}
 
   getAllEmployees(): Observable<any[]> {
-    return this.http.get<any[]>(`${environment.apiUrl}`);
+    return this.http.get<any[]>(`${environment.apiUrl}/employees`);
   }
 
   getEmployeesByDepartment(departmentId: string): Observable<any[]> {

@@ -19,7 +19,6 @@ export class EmployeeDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeId = this.activatedRoute.snapshot.paramMap.get('id')!;
-    console.log('print employee id from details page', this.employeeId);
     this.loadEmployeeDetails(this.employeeId);
   }
 
