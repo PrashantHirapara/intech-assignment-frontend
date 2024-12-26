@@ -6,16 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { EmployeeTableComponent } from './employee-table/employee-table.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
-import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    EmployeeTableComponent,
-    EmployeeDetailComponent,
-    EmployeeFormComponent,
-  ],
+  declarations: [AppComponent, EmployeeTableComponent, EmployeeDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
