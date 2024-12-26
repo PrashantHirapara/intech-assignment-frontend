@@ -53,8 +53,4 @@ export class EmployeeTableComponent implements OnInit {
   viewEmployee(employeeId: string): void {
     this.router.navigate([`/employee/${employeeId}`]);
   }
-
-  onDeleteEmployee(employeeId: string): void {
-    this.employees = this.employees.filter((emp) => emp.id !== employeeId);
-  }
 }
