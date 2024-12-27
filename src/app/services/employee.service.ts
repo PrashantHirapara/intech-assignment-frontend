@@ -24,11 +24,16 @@ export class EmployeeService {
   }
 
   updateEmployee(employee: any): Observable<any> {
-    return this.http.put<any>(`${environment.apiUrl}/${employee.id}`, employee);
+    return this.http.put<any>(
+      `${environment.apiUrl}/employees/${employee.id}`,
+      employee
+    );
   }
 
-  deleteEmployee(id: string): Observable<any> {
-    return this.http.delete<any>(`${environment.apiUrl}/${id}`);
+  deleteEmployee(employeeId: string): Observable<any> {
+    return this.http.delete<any>(
+      `${environment.apiUrl}/employees/${employeeId}`
+    );
   }
 
   saveEmployee(employee: any): Observable<any> {

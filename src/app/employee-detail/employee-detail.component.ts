@@ -34,26 +34,36 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
   updateEmployee(): void {
-    this.employeeService.updateEmployee(this.employee).subscribe(
-      (data) => {
-        alert('Employee updated successfully!');
+    this.employeeService.updateEmployee(this.employee).subscribe({
+      next: (data) => {
+        if (data && data.message) {
+          alert(data.message);
+        } else {
+          alert('Employee updated successfully!');
+        }
         this.router.navigate(['/employee-table']);
       },
-      (error) => {
+      error: (error) => {
         console.error('Error updating employee', error);
-      }
-    );
+        alert('There was an error updating the employee.');
+      },
+    });
   }
 
   deleteEmployee(): void {
-    this.employeeService.deleteEmployee(this.employee.id).subscribe(
-      (data) => {
-        alert('Employee deleted successfully!');
+    this.employeeService.deleteEmployee(this.employee.id).subscribe({
+      next: (data) => {
+        if (data && data.message) {
+          alert(data.message);
+        } else {
+          alert('Employee deleted successfully!');
+        }
         this.router.navigate(['/employee-table']);
       },
-      (error) => {
+      error: (error) => {
         console.error('Error deleting employee', error);
-      }
-    );
+        alert('There was an error deleting the employee.');
+      },
+    });
   }
 }
